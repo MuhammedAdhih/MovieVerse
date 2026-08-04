@@ -13,11 +13,23 @@ document.addEventListener("DOMContentLoaded", async () => {
   try {
     const games = await getGames();
 
-      loadHero(games[0]);
+      const heroGame = games[Math.floor(Math.random() * games.length)];
+
+      loadHero(games);
+      initHeroCarousel();
 
     loadGameRows(games);
+    loader.style.display = "none";
   } catch (error) {
-    console.log(error);
+    document.getElementById("gameRows").innerHTML = `
+    <div class="text-center py-5">
+
+        <h2>Unable to load games.</h2>
+
+        <p>Please try again later.</p>
+
+    </div>
+`;
   }
 
   setupSearch();

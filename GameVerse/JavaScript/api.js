@@ -15,7 +15,12 @@ export async function getGames() {
         cover.url,
         rating,
         first_release_date;
-      limit 20;
+         where
+        cover != null;
+
+      sort rating desc;
+
+      limit 24;
     `,
   });
 

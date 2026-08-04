@@ -1,15 +1,22 @@
 export function loadGameRows(games) {
   const gameRows = document.getElementById("gameRows");
 
-  gameRows.innerHTML = "";
+  if (!gameRows) return;
 
-  games.forEach((game) => {
-    const image = game.cover
-      ? `https:${game.cover.url.replace("t_thumb", "t_cover_big")}`
-      : "https://placehold.co/300x400?text=No+Image";
+  const html = games
+    .map((game) => {
+      const image = game.cover
+        ? `https:${game.cover.url.replace("t_thumb", "t_cover_big")}`
+        : "https://placehold.co/300x400?text=No+Image";
 
-    gameRows.innerHTML += `
-      <div class="game-card" data-title="${game.name}">
+      const rating = game.rating ? Math.round(game.rating) : "N/A";
+
+      const year = game.first_release_date
+        ? new Date(game.first_release_date * 1000).getFullYear()
+        : "-";
+
+      return `
+      <div class="game-card" data-title="${game.name.toLowerCase()}">
 
         <img src="${image}" alt="${game.name}">
 
@@ -19,9 +26,9 @@ export function loadGameRows(games) {
 
           <div class="game-meta">
 
-            <span class="rating">
-              ⭐ ${game.rating ? Math.round(game.rating) : "N/A"}
-            </span>
+            <span>⭐ ${rating}</span>
+
+            <span>${year}</span>
 
           </div>
 
@@ -29,5 +36,8 @@ export function loadGameRows(games) {
 
       </div>
     `;
-  });
+    })
+    .join("");
+
+  gameRows.innerHTML = html;
 }
