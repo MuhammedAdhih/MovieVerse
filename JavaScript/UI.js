@@ -17,7 +17,7 @@ export function updateAuthUI() {
     };
   } else {
     auth.innerHTML = `
-      <a href="login.html" class="btn btn-outline-light btn-sm">
+      <a href="./HTML/login.html" class="btn btn-outline-light btn-sm">
         Login
       </a>
     `;

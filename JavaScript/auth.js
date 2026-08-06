@@ -12,9 +12,9 @@ if (signupForm) {
   signupForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const name = document.getElementById("signupName").value.trim();
-    const email = document.getElementById("signupEmail").value.trim();
-    const password = document.getElementById("signupPassword").value.trim();
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
 
     if (!nameRegex.test(name)) {
       alert("Name must contain only letters and minimum 3 characters");
@@ -55,9 +55,9 @@ if (loginForm) {
   loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const email = document.getElementById("loginEmail").value.trim();
+    const email = document.getElementById("email").value.trim();
 
-    const password = document.getElementById("loginPassword").value.trim();
+    const password = document.getElementById("password").value.trim();
 
     const user = JSON.parse(localStorage.getItem("user"));
 
@@ -76,7 +76,7 @@ if (loginForm) {
 
       alert("Login successful");
 
-      window.location.href = "index.html";
+      window.location.href = "../index.html";
     } else {
       alert("Wrong email or password");
     }
