@@ -1,8 +1,6 @@
 const ACCESS_TOKEN =
   "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4MTFlMGJhOTgxZmE3OWU1YTJjYThiMWM2MGMyMGI4NiIsIm5iZiI6MTc3ODE2OTE0NS4xMjgsInN1YiI6IjY5ZmNiNTM5NTA1ZTFiNTY0ZWM0ODNlZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.cIbFIUjv2b84x5GY4wB6i_3M4VwLCq9SXCjVnUUZjSg";
 
-
-
 const options = {
   headers: {
     Authorization: `Bearer ${ACCESS_TOKEN}`,
@@ -44,6 +42,19 @@ export async function getMovies(endpoint) {
 
   if (!response.ok) {
     throw new Error("Failed to fetch movies");
+  }
+
+  return await response.json();
+}
+
+export async function getMovieTrailer(movieId) {
+  const response = await fetch(
+    `https://api.themoviedb.org/3/movie/${movieId}/videos`,
+    options,
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch trailer");
   }
 
   return await response.json();
