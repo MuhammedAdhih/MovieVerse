@@ -1,0 +1,19 @@
+.navbar {
+  background: rgba(13, 17, 23, 0.85) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #222;
+}
+
+#searchInput {
+  background: var(--card);
+  color: #fff;
+  border: 1px solid #333;
+  border-radius: 20px;
+  padding: 6px 16px;
+}
+
+#searchInput:focus {
+  border-color: #666;
+  box-shadow: none;
+  outline: none;
+}

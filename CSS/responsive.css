@@ -1,0 +1,17 @@
+@media (max-width: 768px) {
+  .hero-carousel {
+    height: 50vh;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .movie-card {
+    flex: 0 0 140px;
+  }
+
+  .movie-card img {
+    height: 210px;
+  }
+}
