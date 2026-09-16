@@ -28,26 +28,7 @@ export function updateAuthUI() {
         Sign Up
       </a>
     `;
-```css
-/* Minimal Scrollbar */
 
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #333;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--bg);
-}
-
-.movie-row::-webkit-scrollbar {
-  display: none;
-}
-```;
   }
 }
 
