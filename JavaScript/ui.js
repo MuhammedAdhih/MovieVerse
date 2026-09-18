@@ -4,7 +4,7 @@ export function setupScrollButton() {
   if (!scrollBtn) return;
 
   window.addEventListener("scroll", () => {
-    scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
+    scrollBtn.style.display = window.scrollY > 400 ? "block" : "none";
   });
 
   scrollBtn.addEventListener("click", () => {
